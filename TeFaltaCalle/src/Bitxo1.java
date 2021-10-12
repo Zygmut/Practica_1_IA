@@ -22,7 +22,7 @@ public class Bitxo1 extends Agent {
 	@Override
 	public void inicia() {
 		// atributsAgents(v,w,dv,av,ll,es,hy)
-		int cost = atributsAgent(6, 9, 600, 30, 23, 5, 5);
+		int cost = atributsAgent(6, 9, 600, 50, 23, 5, 5);
 		System.out.println("Cost total:" + cost);
 
 		// Inicialització de variables que utilitzaré al meu comportament
@@ -41,7 +41,7 @@ public class Bitxo1 extends Agent {
 			moure();
 
 		} else {
-			if (estat.objecteVisor[CENTRAL] == PARET || estat.enCollisio || hiHaParetDreta(7) || hiHaParetEsquerra(7)) {
+			if (estat.objecteVisor[CENTRAL] == PARET || estat.enCollisio || hiHaParetDreta(12) || hiHaParetEsquerra(12)) {
 				moure();
 			} else {
 				atura();
