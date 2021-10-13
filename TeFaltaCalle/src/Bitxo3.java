@@ -1,7 +1,7 @@
 package agents;
 
 // Exemple de Bitxo
-public class Bitxo1 extends Agent {
+public class Bitxo3 extends Agent {
 
     static final int PARET = 0;
     static final int BITXO = 1;
@@ -15,8 +15,8 @@ public class Bitxo1 extends Agent {
     static final int WALL_MARGIN = 70;
     private int repetirAturat = 0;
 
-    public Bitxo1(Agents pare) {
-        super(pare, "Exemple1", "imatges/robotank1.gif");
+    public Bitxo3(Agents pare) {
+        super(pare, "Exemple3", "imatges/robotank1.gif");
 
     }
 
