@@ -23,7 +23,7 @@ public class Bitxo1 extends Agent {
     @Override
     public void inicia() {
         // atributsAgents(v,w,dv,av,ll,es,hy)
-        int cost = atributsAgent(6, 9, 600, 50, 23, 5, 5);
+        int cost = atributsAgent(6, 9, 600, 50, 23, 5, 3);
         System.out.println("Cost total:" + cost);
 
         // Inicialització de variables que utilitzaré al meu comportament
@@ -41,11 +41,21 @@ public class Bitxo1 extends Agent {
 
             if (estat.veigAlgunRecurs == true) {
                 int objecteProper = objecteMesProper();
-                mira(estat.objectes[objecteProper]);
 
                 if ((estat.objectes[objecteProper].agafaTipus() - estat.id != 100) && (estat.objecteVisor[1] != 0)) {
                     // Recurso a eliminar 
-                    llança();
+                    if (estat.objectes[objecteProper].agafaDistancia() < 30) {
+                        atura();
+                    }
+                    if (estat.llançaments > 0) {
+                        mira(estat.objectes[objecteProper]);
+                        if (estat.objectes[objecteProper].agafaDistancia()<375) {
+                            llança();
+                        }
+                    }
+
+                } else {
+                    mira(estat.objectes[objecteProper]);
                 }
 
             }
@@ -92,7 +102,7 @@ public class Bitxo1 extends Agent {
             }
         } else {
             if (hiHaParetAprop(WALL_MARGIN)) {
-                System.out.println("WALL");
+
                 double distEsquerra = Double.MAX_VALUE;
                 double distDreta = Double.MAX_VALUE;
 
@@ -112,7 +122,7 @@ public class Bitxo1 extends Agent {
                     esquerra();
                 }
 
-            }else{
+            } else {
                 atura();
             }
             endavant();

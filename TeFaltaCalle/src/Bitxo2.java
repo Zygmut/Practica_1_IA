@@ -92,7 +92,7 @@ public class Bitxo2 extends Agent {
             }
         } else {
             if (hiHaParetAprop(WALL_MARGIN)) {
-                System.out.println("WALL");
+               
                 double distEsquerra = Double.MAX_VALUE;
                 double distDreta = Double.MAX_VALUE;
 
