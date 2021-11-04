@@ -52,12 +52,50 @@ public class Bitxo1 extends Agent {
                         if (estat.objectes[objecteProper].agafaDistancia()<375) {
                             llança();
                         }
+                        moure();
                     }
 
                 } else {
                     mira(estat.objectes[objecteProper]);
                 }
 
+            }
+        }
+                //Protocolo de daño
+        if (estat.impactesRebuts >= 4) {
+            protocoloDañoAlto();
+        }
+
+        //Protocolo de supervivencia
+        if (estat.forces < 3000) {
+            protocoloSupervivencia();
+        }
+
+    }
+        private void protocoloSupervivencia() {
+  
+        int i = objecteMesProper();
+        if (estat.hiperespais != 0 && !estat.hiperEspaiActiu && estat.objectes[i].agafaTipus() - estat.id != 100 ) {
+            hyperespai();
+        }
+    }
+
+    /*
+     * Metodo que mantiene escudos activos siempre que quede una sola vida
+     */
+    private void protocoloDañoAlto() {
+
+        //tenemos escudo activado?
+        if (!estat.escutActivat) {
+            //tenemos algún escudo? Sí, lo activamos
+            if (estat.escuts != 0) {
+                activaEscut();
+            } //no tenemos escudo
+            else {
+                //si la vida esta baja, tenemos HE (y ningun escudo) y ninguno activo, activamos HE
+                if (estat.hiperespais != 0 && !estat.hiperEspaiActiu) {
+                    hyperespai();
+                }
             }
         }
 
@@ -88,15 +126,15 @@ public class Bitxo1 extends Agent {
         if (estat.enCollisio == true || repetirAturat > 0) {
             if (repetirAturat == 0) {
                 atura();
-                repetirAturat = 5;
+                repetirAturat = 7;
             }
             enrere();
             if (estat.distanciaVisors[DRETA] > estat.distanciaVisors[ESQUERRA]) {
-                if (repetirAturat == 5) {
+                if (repetirAturat == 7) {
                     esquerra();
                 }
             } else {
-                if (repetirAturat == 5) {
+                if (repetirAturat == 7) {
                     dreta();
                 }
             }
