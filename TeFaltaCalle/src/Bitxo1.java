@@ -66,18 +66,6 @@ public class Bitxo1 extends Agent {
             protocoloDañoAlto();
         }
 
-        //Protocolo de supervivencia
-        if (estat.forces < 3000) {
-            protocoloSupervivencia();
-        }
-
-    }
-        private void protocoloSupervivencia() {
-  
-        int i = objecteMesProper();
-        if (estat.hiperespais != 0 && !estat.hiperEspaiActiu && estat.objectes[i].agafaTipus() - estat.id != 100 ) {
-            hyperespai();
-        }
     }
 
     /*
@@ -85,9 +73,7 @@ public class Bitxo1 extends Agent {
      */
     private void protocoloDañoAlto() {
 
-        //tenemos escudo activado?
         if (!estat.escutActivat) {
-            //tenemos algún escudo? Sí, lo activamos
             if (estat.escuts != 0) {
                 activaEscut();
             } //no tenemos escudo
@@ -129,15 +115,14 @@ public class Bitxo1 extends Agent {
                 repetirAturat = 7;
             }
             enrere();
-            if (estat.distanciaVisors[DRETA] > estat.distanciaVisors[ESQUERRA]) {
-                if (repetirAturat == 7) {
+            if (repetirAturat == 7){
+                if (estat.distanciaVisors[DRETA] > estat.distanciaVisors[ESQUERRA]){
                     esquerra();
-                }
-            } else {
-                if (repetirAturat == 7) {
+                }else{
                     dreta();
                 }
             }
+            
         } else {
             if (hiHaParetAprop(WALL_MARGIN)) {
 
@@ -167,7 +152,6 @@ public class Bitxo1 extends Agent {
         }
     }
 
-    /*
     /*
     Método que mira si hay una pared delante dentro de un rango d
      */
