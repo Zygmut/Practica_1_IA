@@ -4,3 +4,4 @@
 En esta práctica se pretende describir y programar el comportamiento de un agente inteligente que pueda hacer todas sus funciones y para poder sobrevivir deberá coger el máximo posible de alimento (que le dará las fuerzas necesarias). El metabolismo del agente es muy rápido y muy delicado. Que sea rápido significa que está continuamente consumiendo energia y que sea delicado significa que sólo puede digerir un tipo determinado de comida ya que es alérgico a los comidas de los demás agentes. Si toca un tipo de alimento que no es el adecuado afectará negativamente en su salud.
 
 ** Images
+[[https://cdn.discordapp.com/attachments/438571019628707841/906841137887723540/unknown.png]]
